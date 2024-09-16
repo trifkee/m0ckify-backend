@@ -5,6 +5,7 @@ export declare class UsersService {
     constructor(usersModel: Model<User>);
     findAll(): Promise<User[]>;
     findOne(username: string, password: string): Promise<User>;
+    findOneById(id: string): Promise<User>;
     create(user: User): Promise<User>;
     delete(userId: string): Promise<void>;
     update(id: string, payload: Partial<User>): Promise<import("mongoose").ModifyResult<User>>;

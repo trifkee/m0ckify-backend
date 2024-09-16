@@ -43,6 +43,9 @@ let UsersController = class UsersController {
     getAllUsers() {
         return this.usersService.findAll();
     }
+    getUserById(id) {
+        return this.usersService.findOneById(id);
+    }
     getSingleUser(username, password) {
         return this.usersService.findOne(username, password);
     }
@@ -81,6 +84,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], UsersController.prototype, "getAllUsers", null);
+__decorate([
+    (0, common_1.Get)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], UsersController.prototype, "getUserById", null);
 __decorate([
     (0, common_1.Post)('login'),
     __param(0, (0, common_1.Body)('username')),

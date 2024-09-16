@@ -7,5 +7,6 @@ export declare class UsersController {
     deleteUser(id: string): Promise<void>;
     updateUser(id: string, updateData: Partial<User>): Promise<import("mongoose").ModifyResult<User>>;
     getAllUsers(): Promise<User[]>;
+    getUserById(id: string): Promise<User>;
     getSingleUser(username: string, password: string): Promise<User>;
 }

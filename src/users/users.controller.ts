@@ -54,6 +54,11 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
+  @Get(':id')
+  getUserById(@Param('id') id: string) {
+    return this.usersService.findOneById(id);
+  }
+
   @Post('login')
   getSingleUser(
     @Body('username') username: string,

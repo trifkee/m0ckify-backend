@@ -42,6 +42,18 @@ let UsersService = class UsersService {
             throw error;
         }
     }
+    async findOneById(id) {
+        try {
+            const user = await this.usersModel.findById(id).exec();
+            if (!user) {
+                throw new common_1.NotFoundException(`User doesn't exists!`);
+            }
+            return user;
+        }
+        catch (error) {
+            throw new Error('Something went wrong...');
+        }
+    }
     async create(user) {
         try {
             const hashedPassword = await bcrypt.hash(user.password, 10);

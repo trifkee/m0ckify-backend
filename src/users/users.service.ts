@@ -39,6 +39,21 @@ export class UsersService {
     }
   }
 
+  // Get User by ID, for any other activity
+  async findOneById(id: string): Promise<User> {
+    try {
+      const user = await this.usersModel.findById(id).exec();
+
+      if (!user) {
+        throw new NotFoundException(`User doesn't exists!`);
+      }
+
+      return user;
+    } catch (error) {
+      throw new Error('Something went wrong...');
+    }
+  }
+
   async create(user: User): Promise<User> {
     try {
       const hashedPassword = await bcrypt.hash(user.password, 10);
