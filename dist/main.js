@@ -5,7 +5,7 @@ const app_module_1 = require("./app.module");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule, {
         cors: {
-            origin: 'https://workshop-4i8ymvm1s.vercel.app',
+            origin: 'https://m0ckify-be.vercel.app/',
             methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
             allowedHeaders: ['Content-Type', 'Authorization'],
             credentials: false,
