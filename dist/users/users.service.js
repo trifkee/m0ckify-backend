@@ -44,7 +44,7 @@ let UsersService = class UsersService {
     }
     async findOneById(id) {
         try {
-            const user = await this.usersModel.findById(id).exec();
+            const user = await this.usersModel.findOne({ id }).exec();
             if (!user) {
                 throw new common_1.NotFoundException(`User doesn't exists!`);
             }

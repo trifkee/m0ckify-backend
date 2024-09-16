@@ -42,7 +42,7 @@ export class UsersService {
   // Get User by ID, for any other activity
   async findOneById(id: string): Promise<User> {
     try {
-      const user = await this.usersModel.findById(id).exec();
+      const user = await this.usersModel.findOne({ id }).exec();
 
       if (!user) {
         throw new NotFoundException(`User doesn't exists!`);
