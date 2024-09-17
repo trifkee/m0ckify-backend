@@ -4,7 +4,7 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
     cors: {
-      origin: 'https://m0ckify.vercel.app/', // Specific origin
+      origin: '*', // Specific origin
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], // Allowed methods
       allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
       credentials: true, // Enable cookies
