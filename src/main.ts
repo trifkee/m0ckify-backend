@@ -4,21 +4,12 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
     cors: {
-      origin: 'https://m0ckify-be.vercel.app/', // Specific origin
+      origin: '*', // Specific origin
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], // Allowed methods
       allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
-      credentials: false, // Enable cookies
+      credentials: true, // Enable cookies
     },
   });
-
-  // app.use((req, res, next) => {
-  //   res.header('Access-Control-Allow-Origin', '*');
-  //   res.header(
-  //     'Access-Control-Allow-Headers',
-  //     'Origin, X-Requested-With, Content-Type, Accept',
-  //   );
-  //   next();
-  // });
 
   await app.listen(3001);
 }
